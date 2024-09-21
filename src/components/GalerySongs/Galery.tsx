@@ -21,6 +21,10 @@ import hace_2_segundos from '../../assets/audio/hace 2 segundos.mp3';
 
 const Gallery: React.FC = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const [completedSongs, setCompletedSongs] = useState<boolean[]>(new Array(19).fill(false)); // Controla qué canciones se han completado
+    const [showModal, setShowModal] = useState<boolean>(false);
+    const [, setCurrentSongIndex] = useState<number | null>(null); // Canción actual que termina
+
 
     const songs = [
         {
@@ -139,10 +143,22 @@ const Gallery: React.FC = () => {
         },
     ];
 
+
     const toggleDropdown = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
+    const handleSongEnd = (index: number) => {
+        setShowModal(true); // Mostrar modal cuando termine la canción
+        setCurrentSongIndex(index); // Establecer la canción que terminó
+        const updatedCompletedSongs = [...completedSongs];
+        updatedCompletedSongs[index] = true; // Marcar la canción como completada
+        setCompletedSongs(updatedCompletedSongs);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
     return (
         <div style={{
             display: 'flex',
@@ -166,8 +182,8 @@ const Gallery: React.FC = () => {
                 <div
                     key={index}
                     style={{
-                        width: '30%',
-                        minWidth: '250px', // Ancho mínimo para que sea responsive
+                        width: '100%',
+                        maxWidth: '550px',
                         marginBottom: '20px',
                         borderRadius: '10px',
                         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
@@ -176,39 +192,55 @@ const Gallery: React.FC = () => {
                         transition: 'transform 0.2s, box-shadow 0.2s',
                         transform: openIndex === index ? 'scale(1.05)' : 'scale(1)',
                     }}
-                    onMouseEnter={() => toggleDropdown(index)}
-                    onMouseLeave={() => toggleDropdown(index)}
                 >
                     <h3 style={{
                         fontFamily: "'Dancing Script', cursive",
                         fontSize: '24px',
                         color: '#ff7b89',
-                        marginBottom: '10px', // Espacio entre el título y el artista
+                        marginBottom: '10px',
                     }}>
                         {song.title}
                     </h3>
                     <p style={{ fontFamily: "'Roboto', sans-serif", fontSize: '16px' }}>
                         {song.artist}
                     </p>
-                    <audio controls style={{ width: '100%' }}>
+                    <audio controls style={{ width: '100%' }} onEnded={() => handleSongEnd(index)}>
                         <source src={song.file} type="audio/mp3" />
                         Tu navegador no soporta el elemento de audio.
                     </audio>
-                    <button
-                        onClick={() => toggleDropdown(index)}
-                        style={{
-                            marginTop: '10px',
-                            padding: '8px 12px',
-                            backgroundColor: '#ff7b89',
-                            color: '#fff',
-                            border: 'none',
-                            borderRadius: '50px',
-                            cursor: 'pointer',
-                            fontFamily: "'Dancing Script', cursive",
-                        }}
-                    >
-                        {openIndex === index ? 'Ocultar Mensaje' : 'Mostrar Mensaje'}
-                    </button>
+                    {completedSongs[index] ? (
+                        <button
+                            onClick={() => toggleDropdown(index)}
+                            style={{
+                                marginTop: '10px',
+                                padding: '8px 12px',
+                                backgroundColor: '#ff7b89',
+                                color: '#fff',
+                                border: 'none',
+                                borderRadius: '50px',
+                                cursor: 'pointer',
+                                fontFamily: "'Dancing Script', cursive",
+                            }}
+                        >
+                            {openIndex === index ? 'Ocultar Mensaje' : 'Mostrar Mensaje'}
+                        </button>
+                    ) : (
+                        <button
+                            disabled
+                            style={{
+                                marginTop: '10px',
+                                padding: '8px 12px',
+                                backgroundColor: '#ccc',
+                                color: '#fff',
+                                border: 'none',
+                                borderRadius: '50px',
+                                cursor: 'not-allowed',
+                                fontFamily: "'Dancing Script', cursive",
+                            }}
+                        >
+                            Escucha para ver el mensaje
+                        </button>
+                    )}
                     {openIndex === index && (
                         <div
                             style={{
@@ -234,6 +266,44 @@ const Gallery: React.FC = () => {
             }}>
                 "Eres la melodía que hace vibrar mi corazón."
             </blockquote>
+
+            {/* Modal */}
+            {showModal && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}>
+                    <div style={{
+                        backgroundColor: '#fff',
+                        padding: '20px',
+                        borderRadius: '10px',
+                        maxWidth: '400px',
+                        textAlign: 'center',
+                    }}>
+                        <h3>¡Felicidades por terminar la canción!</h3>
+                        <p>Ahora puedes ver el mensaje.</p>
+                        <button onClick={handleCloseModal} style={{
+                            marginTop: '10px',
+                            padding: '8px 12px',
+                            backgroundColor: '#ff7b89',
+                            color: '#fff',
+                            border: 'none',
+                            borderRadius: '50px',
+                            cursor: 'pointer',
+                            fontFamily: "'Dancing Script', cursive",
+                        }}>
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
