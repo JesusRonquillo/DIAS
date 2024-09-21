@@ -28,119 +28,144 @@ const Gallery: React.FC = () => {
 
     const songs = [
         {
-            title: "A marte",
-            artist: "Artista Desconocido",
+            title: "Vámonos a Marte",
+            artist: "Kevin Kaarl",
             file: A_marte,
-            message: "Mensaje sobre A marte.",
+            message: `¡Vámonos a Marte! 🚀 Quiero contarte algo que llevo en el corazón: la canción que más me representa, esa melodía que siempre estará ahí para darme ánimo en los momentos difíciles. Pero sé que, a tu lado, esos momentos difíciles van a ser más bien "difíciles chidos" o, tal vez, ni tan difíciles. ¡Con tu sonrisa y tu energía, cualquier reto se convierte en una aventura divertida!  
+    Así que, mientras viajamos juntos por este universo, sé que podremos enfrentar cualquier cosa. Y si alguna vez sentimos que la gravedad nos pesa, solo necesitaremos poner nuestra canción favorita y dejarnos llevar. ¡Contigo, todo es posible!`,
         },
+
         {
             title: "A dónde vamos",
             artist: "Morat",
             file: A_donde_vamos,
-            message: "Mensaje sobre A dónde vamos.",
+            message: `¿A dónde vamos? 🤔 Definitivamente es una pregunta que será muy recurrente en nuestra relación. La mejor frase de esta canción es: "Hoy somos la prueba de que dos extraños, con algo de suerte, por más de mil años se siguen diciendo a dónde vamos." 
+
+    Creo que podría ser la canción perfecta para cualquier día, pero sin duda alguna, es la melodía que me recuerda a ti. Cada vez que la escucho, siento que nuestras aventuras están marcadas por esa misma pregunta. ¡Y lo mejor es que, pase lo que pase, siempre estaremos juntos en este viaje!`,
         },
+
         {
             title: "Bendita la luz",
             artist: "Maná",
             file: Bendita_la_luz,
-            message: "Mensaje sobre Bendita la luz.",
+            message: `¡Bendita la luz de tu mirada! ✨ Definitivamente, esta canción representa el momento exacto en que te vi. Porque Dios nos creó y nosotros nos encontramos. 
+
+    Sin duda, es la mejor manera de empezar una relación: con música y, sobre todo, contigo. Sé que eso nunca faltará. Cada nota me recuerda lo afortunado que soy de tenerte en mi vida. ¡Eres la luz que ilumina mi camino!`,
         },
+
         {
             title: "Can't Help Falling In Love",
             artist: "Elvis Presley",
             file: Cant_Help_Falling_In_Love,
-            message: "Mensaje sobre Can't Help Falling In Love.",
+            message: `No puedo evitar enamorarme de ti, como un niño que se emociona al abrir un regalo. 🎁 Cada vez que se de ti, siento que el mundo se reduce y todo lo que importa eres tú. Estoy convencido de que esta relacion es como una melodía que nunca deja de sonar, y estoy listo para bailarla contigo todos los días aunque no podamos mas, o quiza un poco mas. ¡Siempre caeré en ti (metafora jajaja)!`,
         },
+
         {
-            title: "Cha cha cha",
-            artist: "Artista Desconocido",
+            title: "Chachachá",
+            artist: "Jósean Log",
             file: Cha_cha_cha,
-            message: "Mensaje sobre Cha cha cha.",
+            message: `¡Vamos a bailar un chachachá! 💃🕺 Cada nota me recuerda lo divertido que es estar contigo. Imagina nuestras noches de baile, riendo y disfrutando como si el mundo fuera solo nuestro. Quiero que nuestra vida sea una fiesta llena de risas, y tú eres el mejor compañero de baile que podría pedir. ¡Que nunca falte la música entre nosotros!`,
         },
+
         {
             title: "¿De qué me sirve el cielo?",
-            artist: "Maná",
+            artist: "Omar Chaparro",
             file: De_que_me_sirve_el_cielo,
-            message: "Mensaje sobre ¿De qué me sirve el cielo?.",
+            message: `¿De qué me sirve el cielo si no estás tú? ☁️ La verdad es que mi mundo no tendría sentido sin tu risa. Cada vez que pienso en lo afortunado que soy de tenerte en mi vida, me doy cuenta de que, incluso cuando llegue mi hora, esta será la canción perfecta para que la escuches y recuerdes todos los momentos divertidos que compartimos. Así que, prometo hacer de cada día uno lleno de risas y aventuras, porque, aunque algún día nos separen, mi amor siempre estará contigo. ¡Eres mi razón para disfrutar la vida!`,
         },
+
+
         {
             title: "Don't Forget Me",
-            artist: "Artista Desconocido",
+            artist: "Imagine Dragons",
             file: Dont_for_get_me,
-            message: "Mensaje sobre Don't Forget Me.",
+            message: `No me olvides, porque cada momento contigo es un regalo invaluable. 🥰 Esta canción me recuerda que juntos creamos recuerdos que permanecerán en nuestros corazones para siempre. Te prometo que haré todo lo posible para que nuestra historia sea memorable, y que cada día que pase, nuestro amor solo se fortalezca. ¡Siempre seré parte de tu historia!`,
         },
+
         {
             title: "Latido de mi corazón",
-            artist: "Artista Desconocido",
+            artist: "Luis Angel Gomez Jaramillo",
             file: Latido_de_mi_corazon,
-            message: "Mensaje sobre Latido de mi corazón.",
+            message: `Recuerdas que esta cancion solo fue para adivinar una peli, pues bien me encanta`,
         },
+
         {
             title: "Destino casualidad",
-            artist: "Artista Desconocido",
+            artist: "Melendi, Ha*Ash",
             file: Destino_casualidad,
-            message: "Mensaje sobre Destino casualidad.",
+            message: `¿Destino o casualidad? Tal vez un poco de ambos, pero lo cierto es que estamos aquí, juntos, y eso es lo que importa. 🌌 Me encanta pensar que el universo conspiró para traernos el uno al otro, y cada día contigo es una nueva aventura. Brindemos por todas las sorpresas que nos depara el futuro y por nuestro amor que solo seguirá creciendo. ¡Nuestra historia está apenas comenzando!`,
         },
+
         {
             title: "Lo mejor de mi vida eres tú",
-            artist: "Natalia Lafourcade",
+            artist: "Ricky Martin, Natalia Jiménez",
             file: Lo_mejor_de_mi_vida_eres_tu,
-            message: "Mensaje sobre Lo mejor de mi vida eres tú.",
+            message: `Lo mejor de mi vida eres tú, y cada día que pasa me doy cuenta de cuán afortunado soy de tenerte a mi lado. 🌟 En cada rayo de sol veo tu sonrisa, y en cada estrella, mi deseo de siempre estar contigo. Sigamos construyendo este hermoso camino juntos, lleno de amor, risas y momentos que atesoraremos para siempre.`,
         },
+
         {
             title: "Mi persona favorita",
-            artist: "Morat",
+            artist: "Rio Roma",
             file: Mi_persona_favorita,
-            message: "Mensaje sobre Mi persona favorita.",
+            message: `Eres mi persona favorita, y eso lo digo con todo el corazón. 🥰 Cada día a tu lado es como descubrir un nuevo capítulo en el mejor libro de aventuras. Espero seguir conociéndote, explorando tus sueños y compartiendo los míos. ¡Nuestro cariño es un viaje que quiero disfrutar contigo siempre!`,
         },
+
         {
             title: "Mujer perfecta",
-            artist: "Jesse & Joy",
+            artist: "KURT",
             file: Mujer_perfecta,
-            message: "Mensaje sobre Mujer perfecta.",
+            message: `Eres la mujer perfecta para mí, y no puedo dejar de maravillarme ante lo increíble que eres. 🌹 Desde tu risa hasta tu forma de ver la vida, cada detalle me fascina. Estoy emocionado por todos los momentos que compartiremos y por cómo cada día a tu lado me hace querer ser mejor. ¡Siempre serás mi inspiración y mi amor!`,
         },
+
         {
-            title: "My Lady",
-            artist: "Artista Desconocido",
+            title: "My Lady (Cristina)",
+            artist: "Sebastian Yatra",
             file: Mylady,
-            message: "Mensaje sobre My Lady.",
+            message: `Bby, cada día contigo es un nuevo motivo para sonreír. 💖 Desde nuestras charlas hasta nuestras locuras, cada instante se convierte en un recuerdo hermoso. Espero seguir escribiendo nuestra historia llena de amor, risas y aventuras. ¡Eres la razón por la que programo tan feliz esta web!`,
         },
+
         {
             title: "Next to Me",
-            artist: "Emeli Sandé",
+            artist: "Imagine Dragons",
             file: Next_to_me,
-            message: "Mensaje sobre Next to Me.",
+            message: `Siempre quiero estar a tu lado, porque cada momento junto a ti es especial. 🤗 En esta loca aventura que llamamos vida, estoy listo para ser tu compañero y enfrentar juntos cualquier desafío. ¡Vamos a construir un futuro increíble donde siempre estemos el uno al lado del otro!`,
         },
+
         {
             title: "Not Today",
-            artist: "Artista Desconocido",
+            artist: "Imagine Dragons",
             file: Not_today,
-            message: "Mensaje sobre Not Today.",
+            message: `Hoy no es el día para rendirnos, y contigo a mi lado, sé que podemos conquistar cualquier cosa. 💪 Me encanta cómo enfrentamos la vida con una sonrisa, y cada reto solo nos hace más fuertes. Juntos, siempre seremos un equipo indestructible. ¡Nuestro amor lo puede todo!`,
         },
+
         {
             title: "Tengo tu love",
-            artist: "Artista Desconocido",
+            artist: "Sie7e",
             file: Tengo_tu_love,
-            message: "Mensaje sobre Tengo tu love.",
+            message: `Tengo tu amor y eso es todo lo que necesito para ser feliz. ❤️ Cada día a tu lado es una bendición, y me encanta cómo hacemos que cada momento cuente. Espero seguir compartiendo risas y sueños contigo, creando un futuro lleno de amor y felicidad. ¡Eres lo mas bonito de mi vida!`,
         },
+
         {
             title: "¿Tu de qué vas?",
-            artist: "Artista Desconocido",
+            artist: "Franco De Vita",
             file: Tu_de_que_vas,
-            message: "Mensaje sobre ¿Tu de qué vas?.",
+            message: `¿Tu de qué vas? Estoy ansioso por conocerte cada día un poco más. 😍 Cada conversación, cada mirada, me hace querer descubrir cada parte de ti. Espero que nuestra conexión siga creciendo y que sigamos disfrutando de esta hermosa cancion juntos. ¡Siempre estaré aquí para ti!`,
         },
+
         {
             title: "Tu foto en blanco y negro",
-            artist: "Artista Desconocido",
+            artist: "David Otero, Taburete",
             file: Tu_foto_en_blanco_y_negro,
-            message: "Mensaje sobre Tu foto en blanco y negro.",
+            message: `Tu foto en blanco y negro representa todos esos momentos hermosos que vamos a vivir juntos. 🎨 Pero baby por ti es todo color, y cada día contigo es una nueva paleta de experiencias. Sigamos creando recuerdos vibrantes que llenen nuestras vidas de alegría y amor. ¡Eres mi obra maestra!`,
         },
+
         {
-            title: "Hace 2 segundos",
-            artist: "Artista Desconocido",
+            title: "Hace dos segundos",
+            artist: "Erreway",
             file: hace_2_segundos,
-            message: "Mensaje sobre Hace 2 segundos.",
+            message: `Hace dos segundos, pero siento que te conozco desde siempre. ⏳ Cada instante contigo es como un susurro del destino que me dice que estamos hechos el uno para el otro. Estoy emocionado por saber que hace dos segundos estaba programando esto, y no se si te gustara (espero que si). ¡Sigamos escribiendo codigo juntos o yo para ti da igual!`,
         },
+
     ];
 
 
@@ -176,7 +201,7 @@ const Gallery: React.FC = () => {
                 fontSize: '36px',
                 color: '#fff',
             }}>
-                Galería Musical para Mi Amor
+                Galería Musical para Mi Baby ❤️
             </h2>
             {songs.map((song, index) => (
                 <div
