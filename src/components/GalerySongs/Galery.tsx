@@ -144,26 +144,96 @@ const Gallery: React.FC = () => {
     };
 
     return (
-        <div>
-            <h2>Galería Musical</h2>
+        <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            background: 'linear-gradient(to right, #ff9a9e, #fad0c4)',
+            padding: '20px',
+            borderRadius: '15px',
+        }}>
+            <h2 style={{
+                width: '100%',
+                textAlign: 'center',
+                marginBottom: '20px',
+                fontFamily: "'Dancing Script', cursive",
+                fontSize: '36px',
+                color: '#fff',
+            }}>
+                Galería Musical para Mi Amor
+            </h2>
             {songs.map((song, index) => (
-                <div key={index} style={{ border: '1px solid #ccc', borderRadius: '8px', margin: '20px', padding: '10px' }}>
-                    <h3>{song.title}</h3>
-                    <p>{song.artist}</p>
-                    <audio controls>
+                <div
+                    key={index}
+                    style={{
+                        width: '30%',
+                        minWidth: '250px', // Ancho mínimo para que sea responsive
+                        marginBottom: '20px',
+                        borderRadius: '10px',
+                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                        padding: '15px',
+                        backgroundColor: '#fff',
+                        transition: 'transform 0.2s, box-shadow 0.2s',
+                        transform: openIndex === index ? 'scale(1.05)' : 'scale(1)',
+                    }}
+                    onMouseEnter={() => toggleDropdown(index)}
+                    onMouseLeave={() => toggleDropdown(index)}
+                >
+                    <h3 style={{
+                        fontFamily: "'Dancing Script', cursive",
+                        fontSize: '24px',
+                        color: '#ff7b89',
+                        marginBottom: '10px', // Espacio entre el título y el artista
+                    }}>
+                        {song.title}
+                    </h3>
+                    <p style={{ fontFamily: "'Roboto', sans-serif", fontSize: '16px' }}>
+                        {song.artist}
+                    </p>
+                    <audio controls style={{ width: '100%' }}>
                         <source src={song.file} type="audio/mp3" />
                         Tu navegador no soporta el elemento de audio.
                     </audio>
-                    <button onClick={() => toggleDropdown(index)} style={{ marginTop: '10px' }}>
+                    <button
+                        onClick={() => toggleDropdown(index)}
+                        style={{
+                            marginTop: '10px',
+                            padding: '8px 12px',
+                            backgroundColor: '#ff7b89',
+                            color: '#fff',
+                            border: 'none',
+                            borderRadius: '50px',
+                            cursor: 'pointer',
+                            fontFamily: "'Dancing Script', cursive",
+                        }}
+                    >
                         {openIndex === index ? 'Ocultar Mensaje' : 'Mostrar Mensaje'}
                     </button>
                     {openIndex === index && (
-                        <div style={{ marginTop: '10px', padding: '10px', backgroundColor: '#f9f9f9', borderRadius: '5px' }}>
+                        <div
+                            style={{
+                                marginTop: '10px',
+                                padding: '10px',
+                                backgroundColor: '#f9f9f9',
+                                borderRadius: '5px',
+                                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                            }}
+                        >
                             <p>{song.message}</p>
                         </div>
                     )}
                 </div>
             ))}
+            <blockquote style={{
+                fontStyle: 'italic',
+                textAlign: 'center',
+                marginTop: '20px',
+                fontFamily: "'Dancing Script', cursive",
+                fontSize: '22px',
+                color: '#fff',
+            }}>
+                "Eres la melodía que hace vibrar mi corazón."
+            </blockquote>
         </div>
     );
 };
