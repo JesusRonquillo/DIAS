@@ -24,7 +24,7 @@ const Gallery: React.FC = () => {
     const [completedSongs, setCompletedSongs] = useState<boolean[]>(new Array(19).fill(false)); // Controla qué canciones se han completado
     const [showModal, setShowModal] = useState<boolean>(false);
     const [, setCurrentSongIndex] = useState<number | null>(null); // Canción actual que termina
-
+    const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
     const songs = [
         {
@@ -174,11 +174,19 @@ const Gallery: React.FC = () => {
     };
 
     const handleSongEnd = (index: number) => {
-        setShowModal(true); // Mostrar modal cuando termine la canción
-        setCurrentSongIndex(index); // Establecer la canción que terminó
+        setShowModal(true);
+        setCurrentSongIndex(index);
         const updatedCompletedSongs = [...completedSongs];
-        updatedCompletedSongs[index] = true; // Marcar la canción como completada
+        updatedCompletedSongs[index] = true;
         setCompletedSongs(updatedCompletedSongs);
+        setIsPlaying(false); // Marcar como no reproduciendo
+    };
+
+    const handlePlay = (index: number) => {
+        if (isPlaying) return; // Si ya hay una canción en reproducción, no hacer nada
+
+        setIsPlaying(true); // Marcar como reproduciendo
+        setCurrentSongIndex(index); // Establecer la canción actual
     };
 
     const handleCloseModal = () => {
@@ -229,7 +237,7 @@ const Gallery: React.FC = () => {
                     <p style={{ fontFamily: "'Roboto', sans-serif", fontSize: '16px' }}>
                         {song.artist}
                     </p>
-                    <audio controls style={{ width: '100%' }} onEnded={() => handleSongEnd(index)}>
+                    <audio controls style={{ width: '100%' }} onEnded={() => handleSongEnd(index)} onPlay={() => handlePlay(index)}>
                         <source src={song.file} type="audio/mp3" />
                         Tu navegador no soporta el elemento de audio.
                     </audio>
